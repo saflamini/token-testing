@@ -12,17 +12,7 @@ async function main() {
     // If this script is run directly using `node` you may want to call compile
     // manually to make sure everything is compiled
     // await hre.run('compile');
-
-    const provider = new ethers.providers.JsonRpcProvider(
-        process.env.GOERLI_URL
-    )
-
-    // const sf = await Framework.create({
-    //     chainId: (await provider.getNetwork()).chainId,
-    //     provider
-    // })
-
-    const signers = await hre.ethers.getSigners()
+    
     // We get the contract to deploy
     const PureToken = await hre.ethers.getContractFactory("PureSuperToken")
     //deploy the money router account using the proper host address and the address of the first signer
@@ -32,13 +22,6 @@ async function main() {
 
     setInterval(() => 30000)
 
-    // const pureTokenDeployed = await pureToken.initialize(
-    //     "0x94f26B4c8AD12B18c12f38E878618f7664bdcCE2",
-    //     "Sam Super Token",
-    //     "SAMx",
-    //     signers[0].address,
-    //     "100000000000000000000"
-    // )
 
     console.log("Pure Token deployed to:", pureToken.address)
 }

@@ -33,10 +33,11 @@ async function main() {
 
     await pureToken.deployed()
 
-    const pureTokenContract = new ethers.Contract("0xDa4DF60F02A9ae497EcddEF755b9655ed6C5a345", pureTokenABI, provider); 
+
+    const pureTokenContract = new ethers.Contract("DEPLOYED_ADDRESS_GOES_HERE", pureTokenABI, provider); 
 
 
-    const pureTokenDeployed = await pureTokenContract.connect(signers[0]).initialize(
+    await pureTokenContract.connect(signers[0]).initialize(
         "0x94f26B4c8AD12B18c12f38E878618f7664bdcCE2",
         "Sam Super Token",
         "SAMx",
